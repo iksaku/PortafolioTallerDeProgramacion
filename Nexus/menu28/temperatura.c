@@ -1,15 +1,6 @@
-/*
- * Equipo #2
- * Hecho por:
- * 1889169	Jorge Alejandro Gonzalez Guerra
- * 1794886	Juan Del Angel Torres
- * 1807900	Oscar Alejandro Rodriguez Constantino
- * 1889421	Victor Alfredo Torres Zarate
- * Fecha de Creacion: 2/14/2018
- */
-
 #include <stdio.h>
 #include <stdbool.h>
+#include "menu28.h"
 
 enum {FROM_CELSIUS, FROM_FAHRENHEIT, FROM_KELVIN, TO_CELSIUS, TO_FAHRENHEIT, TO_KELVIN};
 int from;
@@ -39,7 +30,7 @@ double doCalc()
     return 0;
 }
 
-int main()
+void temperatura()
 {
     bool firstTime = true;
     while(true)
@@ -48,12 +39,12 @@ int main()
         char tmp; // Ignored, used just for returning to main menu...
         if (!firstTime) printf("\n\n\n");
         printf("~~~ Menu ~~~\nPorfavor selecciona una opcion para continuar:\n");
-        printf("\t - (1) Convertir de °C a °F\n");
-        printf("\t - (2) Convertir de °C a K\n");
-        printf("\t - (3) Convertir de °F a °C\n");
-        printf("\t - (4) Convertir de °F a K\n");
-        printf("\t - (5) Convertir de K a °C\n");
-        printf("\t - (6) Convertir de K a °F\n");
+        printf("\t1. Convertir de °C a °F\n");
+        printf("\t2. Convertir de °C a K\n");
+        printf("\t3. Convertir de °F a °C\n");
+        printf("\t4. Convertir de °F a K\n");
+        printf("\t5. Convertir de K a °C\n");
+        printf("\t6. Convertir de K a °F\n");
         printf("Presiona cualquier otra tecla para salir...\n");
 
         scanf("%c", &option);
@@ -66,7 +57,7 @@ int main()
                 printf("Especifica la temperatura a convertir de °C a °F: ");
                 scanf("%f", &temperature);
 
-                printf("La temperatura en °F es: %f", doCalc());
+                printf("La temperatura en °F es: .2%f", doCalc());
                 break;
             case '2':
                 from = FROM_CELSIUS;
@@ -74,7 +65,7 @@ int main()
                 printf("Especifica la temperatura a convertir de °C a K: ");
                 scanf("%f", &temperature);
 
-                printf("La temperatura en K es: %f", doCalc());
+                printf("La temperatura en K es: %.2f", doCalc());
                 break;
             case '3':
                 from = FROM_FAHRENHEIT;
@@ -82,7 +73,7 @@ int main()
                 printf("Especifica la temperatura a convertir de °F a °C: ");
                 scanf("%f", &temperature);
 
-                printf("La temperatura en °C es: %f", doCalc());
+                printf("La temperatura en °C es: %.2f", doCalc());
                 break;
             case '4':
                 from = FROM_FAHRENHEIT;
@@ -90,7 +81,7 @@ int main()
                 printf("Especifica la temperatura a convertir de °F a K: ");
                 scanf("%f", &temperature);
 
-                printf("La temperatura en K es: %f", doCalc());
+                printf("La temperatura en K es: %.2f", doCalc());
                 break;
             case '5':
                 from = FROM_KELVIN;
@@ -98,7 +89,7 @@ int main()
                 printf("Especifica la temperatura a convertir de K a °C: ");
                 scanf("%f", &temperature);
 
-                printf("La temperatura en °C es: %f", doCalc());
+                printf("La temperatura en °C es: %.2f", doCalc());
                 break;
             case '6':
                 from = FROM_KELVIN;
@@ -106,15 +97,14 @@ int main()
                 printf("Especifica la temperatura a convertir de K a °F: ");
                 scanf("%f", &temperature);
 
-                printf("La temperatura en °F es: %f", doCalc());
+                printf("La temperatura en °F es: %.2f", doCalc());
                 break;
             default:
-                printf("Saliendo del programa...");
-                return 0;
+                return;
         }
 
         firstTime = false;
-        printf("\nPresiona <Enter> para volver al menu principal...");
+        printf("\nPresiona <Enter> para volver...");
         scanf("%c", &tmp);
         scanf("%c", &tmp);
     }
